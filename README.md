@@ -1,7 +1,7 @@
 yolo-octo-lana
 ==============
 
-Caixa eletrônico
+Caixa eletrônico - Finanças/Bancário
 
 Equipe
 
@@ -13,5 +13,12 @@ Visão
 Cadastro de contas - Gerente do Banco
 
 Caixa eletrônico - Cliente do Banco
+
+Sistemas similares
+
+HSBC
+BB
+Banrisul
+
 
 

@@ -27,6 +27,9 @@ Referências
 ===========
 
 http://www.w3schools.com/sql/default.asp
+http://docs.oracle.com/javase/tutorial/jdbc/overview/index.html
+http://jdbc.postgresql.org/documentation/docs.html
+http://codigomestre.forumbrasil.net/
 
 
 

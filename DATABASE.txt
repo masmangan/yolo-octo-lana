@@ -1,0 +1,70 @@
+-- Database: pindorama
+
+-- DROP DATABASE PINDORAMA;
+
+CREATE DATABASE PINDORAMA
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'Portuguese_Brazil.1252'
+       LC_CTYPE = 'Portuguese_Brazil.1252'
+       CONNECTION LIMIT = -1;
+
+
+-- Table: PDR_CONTAS
+
+-- DROP TABLE PDR_CONTAS;
+
+CREATE TABLE PDR_CONTAS
+(
+  CONTA_ID serial NOT NULL,
+  CPF character varying,
+  NOME character varying,
+  NUMERO character varying,
+  CONSTRAINT PDR_CONTAS_pkey PRIMARY KEY (CONTA_ID)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE PDR_CONTAS
+  OWNER TO postgres;
+COMMENT ON TABLE PDR_CONTAS
+  IS 'Dados de uma conta bancária. Por simplicidade, também armazena dados do cliente.';
+
+-- Table: PDR_MOVIMENTACOES
+
+-- DROP TABLE PDR_MOVIMENTACOES;
+
+CREATE TABLE PDR_MOVIMENTACOES
+(
+  MOVIMENTACAO_ID serial NOT NULL,
+  VALOR money, -- Valor movimentado na operação. Em Reais, com duas casas decimais.
+  DATA timestamp with time zone, -- Data e hora do registro da operação.
+  CONTA integer,
+  CONSTRAINT PDR_MOVIMENTACOES_pkey PRIMARY KEY (MOVIMENTACAO_ID),
+  CONSTRAINT PDR_MOVIMENTACOES_CONTA_fkey FOREIGN KEY (CONTA)
+      REFERENCES PDR_CONTAS (CONTA_ID) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE PDR_MOVIMENTACOES
+  OWNER TO postgres;
+COMMENT ON TABLE PDR_MOVIMENTACOES
+  IS 'Uma operação realizada em uma conta bancária. A operação altera o saldo da conta.';
+COMMENT ON COLUMN PDR_MOVIMENTACOES.valor IS 'Valor movimentado na operação. Em Reais, com duas casas decimais.';
+COMMENT ON COLUMN PDR_MOVIMENTACOES.data IS 'Data e hora do registro da operação.';
+
+insert into pdr_contas(cpf, nome, numero) values ('123', 'Raul Pont', 'abc');
+
+update pdr_contas set nome='qazwsx' where conta_id= 4 
+
+select * from pdr_contas where cpf= '123'
+select * from pdr_contas where numero= 'abc'
+
+
+insert into pdr_movimentacoes(data, valor, conta) values('now', 200.00, 1);
+
+select * from pdr_movimentacoes where conta = 1;
+

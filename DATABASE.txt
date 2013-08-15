@@ -1,81 +1,24 @@
--- Database: pindorama
+Comandos da aplicação
+=====================
 
--- DROP DATABASE PINDORAMA;
+Cadastro de clientes
+--------------------
 
-CREATE DATABASE PINDORAMA
-  WITH OWNER = postgres
-       ENCODING = 'UTF8'
-       TABLESPACE = pg_default
-       LC_COLLATE = 'Portuguese_Brazil.1252'
-       LC_CTYPE = 'Portuguese_Brazil.1252'
-       CONNECTION LIMIT = -1;
-
-
--- Table: PDR_CONTAS
-
--- DROP TABLE PDR_CONTAS;
-
-CREATE TABLE PDR_CONTAS
-(
-  CONTA_ID serial NOT NULL,
-  CPF character varying,
-  NOME character varying,
-  NUMERO character varying,
-  CONSTRAINT PDR_CONTAS_pkey PRIMARY KEY (CONTA_ID)
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE PDR_CONTAS
-  OWNER TO postgres;
-COMMENT ON TABLE PDR_CONTAS
-  IS 'Dados de uma conta bancária. Por simplicidade, também armazena dados do cliente.';
-
--- Table: PDR_MOVIMENTACOES
-
--- DROP TABLE PDR_MOVIMENTACOES;
-
-CREATE TABLE PDR_MOVIMENTACOES
-(
-  MOVIMENTACAO_ID serial NOT NULL,
-  VALOR money, -- Valor movimentado na operação. Em Reais, com duas casas decimais.
-  DATA timestamp with time zone, -- Data e hora do registro da operação.
-  CONTA integer,
-  CONSTRAINT PDR_MOVIMENTACOES_pkey PRIMARY KEY (MOVIMENTACAO_ID),
-  CONSTRAINT PDR_MOVIMENTACOES_CONTA_fkey FOREIGN KEY (CONTA)
-      REFERENCES PDR_CONTAS (CONTA_ID) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE PDR_MOVIMENTACOES
-  OWNER TO postgres;
-COMMENT ON TABLE PDR_MOVIMENTACOES
-  IS 'Uma operação realizada em uma conta bancária. A operação altera o saldo da conta.';
-COMMENT ON COLUMN PDR_MOVIMENTACOES.valor IS 'Valor movimentado na operação. Em Reais, com duas casas decimais.';
-COMMENT ON COLUMN PDR_MOVIMENTACOES.data IS 'Data e hora do registro da operação.';
-
-INSERT INTO pdr_contas VALUES (1, '12345678901', 'Dilma Roussef', 'ABCXXX001');
-INSERT INTO pdr_contas VALUES (2, '23456789012', 'Tarso Genro', 'ABCXYZ002');
-INSERT INTO pdr_contas VALUES (3, '34567890123', 'José Fortunati', 'ABCABC003');
-INSERT INTO pdr_contas VALUES (4, '123', 'qazwsx', 'abc');
-
-INSERT INTO pdr_movimentacoes VALUES (3, 'R$ 120.000,00', '2013-01-01 00:00:00-02', 3);
-INSERT INTO pdr_movimentacoes VALUES (1, 'R$ 1.300,00', '2013-08-08 16:20:01-03', 1);
-INSERT INTO pdr_movimentacoes VALUES (4, 'R$ 200,00', '2013-08-08 09:40:20.838-03', 1);
-INSERT INTO pdr_movimentacoes VALUES (2, 'R$ 230.000,12', '2013-08-15 10:10:10-03', 2);
-
-
+Criação de conta
 insert into pdr_contas(cpf, nome, numero) values ('123', 'Raul Pont', 'abc');
 
+Atualização de cadastro
 update pdr_contas set nome='qazwsx' where conta_id= 4 
 
+Consultar dados da conta por CPF ou número da conta
 select * from pdr_contas where cpf= '123'
 select * from pdr_contas where numero= 'abc'
 
-
+Registro de operação bancária
+-----------------------------
 insert into pdr_movimentacoes(data, valor, conta) values('now', 200.00, 1);
 
+Consultar extrato de conta
+--------------------------
 select * from pdr_movimentacoes where conta = 1;
 

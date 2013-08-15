@@ -1,0 +1,272 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.2.2
+-- Dumped by pg_dump version 9.2.2
+-- Started on 2013-08-15 10:36:23
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 1938 (class 1262 OID 33629)
+-- Name: PINDORAMA; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE "PINDORAMA" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'Portuguese_Brazil.1252' LC_CTYPE = 'Portuguese_Brazil.1252';
+
+
+ALTER DATABASE "PINDORAMA" OWNER TO postgres;
+
+\connect "PINDORAMA"
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 172 (class 3079 OID 11727)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 1941 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 169 (class 1259 OID 33656)
+-- Name: pdr_contas; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE pdr_contas (
+    conta_id integer NOT NULL,
+    cpf character varying,
+    nome character varying,
+    numero character varying
+);
+
+
+ALTER TABLE public.pdr_contas OWNER TO postgres;
+
+--
+-- TOC entry 1942 (class 0 OID 0)
+-- Dependencies: 169
+-- Name: TABLE pdr_contas; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE pdr_contas IS 'Dados de uma conta bancária. Por simplicidade, também armazena dados do cliente.';
+
+
+--
+-- TOC entry 168 (class 1259 OID 33654)
+-- Name: pdr_contas_conta_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE pdr_contas_conta_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.pdr_contas_conta_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 1943 (class 0 OID 0)
+-- Dependencies: 168
+-- Name: pdr_contas_conta_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE pdr_contas_conta_id_seq OWNED BY pdr_contas.conta_id;
+
+
+--
+-- TOC entry 171 (class 1259 OID 33667)
+-- Name: pdr_movimentacoes; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE pdr_movimentacoes (
+    movimentacao_id integer NOT NULL,
+    valor money,
+    data timestamp with time zone,
+    conta integer
+);
+
+
+ALTER TABLE public.pdr_movimentacoes OWNER TO postgres;
+
+--
+-- TOC entry 1944 (class 0 OID 0)
+-- Dependencies: 171
+-- Name: TABLE pdr_movimentacoes; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE pdr_movimentacoes IS 'Uma operação realizada em uma conta bancária. A operação altera o saldo da conta.';
+
+
+--
+-- TOC entry 1945 (class 0 OID 0)
+-- Dependencies: 171
+-- Name: COLUMN pdr_movimentacoes.valor; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN pdr_movimentacoes.valor IS 'Valor movimentado na operação. Em Reais, com duas casas decimais.';
+
+
+--
+-- TOC entry 1946 (class 0 OID 0)
+-- Dependencies: 171
+-- Name: COLUMN pdr_movimentacoes.data; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN pdr_movimentacoes.data IS 'Data e hora do registro da operação.';
+
+
+--
+-- TOC entry 170 (class 1259 OID 33665)
+-- Name: pdr_movimentacoes_movimentacao_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE pdr_movimentacoes_movimentacao_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.pdr_movimentacoes_movimentacao_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 1947 (class 0 OID 0)
+-- Dependencies: 170
+-- Name: pdr_movimentacoes_movimentacao_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE pdr_movimentacoes_movimentacao_id_seq OWNED BY pdr_movimentacoes.movimentacao_id;
+
+
+--
+-- TOC entry 1923 (class 2604 OID 33659)
+-- Name: conta_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY pdr_contas ALTER COLUMN conta_id SET DEFAULT nextval('pdr_contas_conta_id_seq'::regclass);
+
+
+--
+-- TOC entry 1924 (class 2604 OID 33670)
+-- Name: movimentacao_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY pdr_movimentacoes ALTER COLUMN movimentacao_id SET DEFAULT nextval('pdr_movimentacoes_movimentacao_id_seq'::regclass);
+
+
+--
+-- TOC entry 1931 (class 0 OID 33656)
+-- Dependencies: 169
+-- Data for Name: pdr_contas; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO pdr_contas VALUES (1, '12345678901', 'Dilma Roussef', 'ABCXXX001');
+INSERT INTO pdr_contas VALUES (2, '23456789012', 'Tarso Genro', 'ABCXYZ002');
+INSERT INTO pdr_contas VALUES (3, '34567890123', 'José Fortunati', 'ABCABC003');
+INSERT INTO pdr_contas VALUES (4, '123', 'qazwsx', 'abc');
+
+
+--
+-- TOC entry 1948 (class 0 OID 0)
+-- Dependencies: 168
+-- Name: pdr_contas_conta_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pdr_contas_conta_id_seq', 1, false);
+
+
+--
+-- TOC entry 1933 (class 0 OID 33667)
+-- Dependencies: 171
+-- Data for Name: pdr_movimentacoes; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO pdr_movimentacoes VALUES (3, 'R$ 120.000,00', '2013-01-01 00:00:00-02', 3);
+INSERT INTO pdr_movimentacoes VALUES (1, 'R$ 1.300,00', '2013-08-08 16:20:01-03', 1);
+INSERT INTO pdr_movimentacoes VALUES (4, 'R$ 200,00', '2013-08-08 09:40:20.838-03', 1);
+INSERT INTO pdr_movimentacoes VALUES (2, 'R$ 230.000,12', '2013-08-15 10:10:10-03', 2);
+
+
+--
+-- TOC entry 1949 (class 0 OID 0)
+-- Dependencies: 170
+-- Name: pdr_movimentacoes_movimentacao_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pdr_movimentacoes_movimentacao_id_seq', 1, false);
+
+
+--
+-- TOC entry 1926 (class 2606 OID 33664)
+-- Name: pdr_contas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY pdr_contas
+    ADD CONSTRAINT pdr_contas_pkey PRIMARY KEY (conta_id);
+
+
+--
+-- TOC entry 1928 (class 2606 OID 33672)
+-- Name: pdr_movimentacoes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY pdr_movimentacoes
+    ADD CONSTRAINT pdr_movimentacoes_pkey PRIMARY KEY (movimentacao_id);
+
+
+--
+-- TOC entry 1929 (class 2606 OID 33673)
+-- Name: pdr_movimentacoes_conta_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY pdr_movimentacoes
+    ADD CONSTRAINT pdr_movimentacoes_conta_fkey FOREIGN KEY (conta) REFERENCES pdr_contas(conta_id);
+
+
+--
+-- TOC entry 1940 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2013-08-15 10:36:24
+
+--
+-- PostgreSQL database dump complete
+--
+

@@ -3,24 +3,32 @@ package pindorama.pojo;
 public class Conta {
 
 	private int contaId;
-	private String cpfBD;
+	private String cpf;
 	private String nome;
 	private String numero;
 
-	public Conta(int contaId, String cpfBD, String nome, String numero) {
+	public Conta(int contaId, String cpf, String nome, String numero) {
 		super();
 		this.contaId = contaId;
-		this.cpfBD = cpfBD;
+		this.cpf = cpf;
 		this.nome = nome;
 		this.numero = numero;
 	}
 
+	public Conta(String cpf, String nome, String numero) {
+		super();
+		this.contaId = -1;
+		this.cpf = cpf;
+		this.nome = nome;
+		this.numero = numero;
+	}	
+	
 	public int getContaId() {
 		return contaId;
 	}
 
-	public String getCpfBD() {
-		return cpfBD;
+	public String getCPF() {
+		return cpf;
 	}
 
 	public String getNome() {
@@ -34,8 +42,8 @@ public class Conta {
 	@Override
 	public String toString() {
 		return String.format(
-				"Conta [contaId=%s, cpfBD=%s, nome=%s, numero=%s]", contaId,
-				cpfBD, nome, numero);
+				"Conta [contaId=%s, cpf=%s, nome=%s, numero=%s]", contaId,
+				cpf, nome, numero);
 	}
 
 }

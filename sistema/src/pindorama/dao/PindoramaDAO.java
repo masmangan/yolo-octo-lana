@@ -20,6 +20,7 @@ public class PindoramaDAO {
 		ResultSet rs = null;
 
 		try {
+			// abrir conexão
 			Properties props = new Properties();
 			props.load(new FileInputStream("pindorama.properties"));
 			String url = props.getProperty("url");
@@ -31,6 +32,7 @@ public class PindoramaDAO {
 			rs = st.executeQuery();
 
 			while (rs.next()) {
+				// copiar dados para POJO
 				int contaId = rs.getInt(1);
 				String cpfBD = rs.getString("cpf");
 				String nome = rs.getString(3);
@@ -46,11 +48,9 @@ public class PindoramaDAO {
 					rs.close();
 				}
 				if (st != null) {
-
 					st.close();
 				}
 				if (db != null) {
-
 					db.close();
 				}
 			} catch (Exception e2) {
@@ -58,5 +58,45 @@ public class PindoramaDAO {
 			}
 		}
 		return conta;
+	}
+
+	public void insertConta(Conta conta) {
+		String cmd = "insert into pdr_contas(cpf, nome, numero) values (?, ?, ?)";
+
+		Connection db = null;
+		PreparedStatement st = null;
+
+		try {
+			// abrir conexão
+			Properties props = new Properties();
+			props.load(new FileInputStream("pindorama.properties"));
+			String url = props.getProperty("url");
+
+			db = DriverManager.getConnection(url, props);
+
+			st = db.prepareStatement(cmd);
+			st.setString(1, conta.getCPF());
+			st.setString(2, conta.getNome());
+			st.setString(3, conta.getNumero());
+			int r = st.executeUpdate();
+
+			if (r != 1) {
+				throw new RuntimeException("Erro ao inserir conta!");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (st != null) {
+					st.close();
+				}
+				if (db != null) {
+					db.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
 	}
 }

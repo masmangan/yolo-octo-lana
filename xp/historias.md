@@ -1,4 +1,4 @@
-Hist�rias
+Histórias
 
 XP
 
@@ -6,9 +6,9 @@ XP
 
 * HU2. O cliente deve poder consultar extrato.
 
-HU2C01 Cen�rio normal
+HU2C01 Cenário normal
 
-O cliente informa n�mero da conta e senhas.
+O cliente informa número da conta e senhas.
 O sistema apresenta o extrato.
 
 Exemplo:
@@ -23,7 +23,7 @@ Sistema:
 
 Saldo anterior: R$ 1000,00
 
-21/08/2013 dep�sito R$ 200,00
+21/08/2013 depósito R$ 200,00
 22/08/2013 saque R$ 100,00
 
 Saldo atual: R$ 1100,00"

@@ -2,26 +2,26 @@ Pindorama
 
 XP
 
-Visão
+VisÃ£o
 
 Problema
 --------
-Demora muito para realizar uma transação.
-É muito caro realizar uma transação.
+* Demora muito para realizar uma transaÃ§Ã£o.
+* Ã‰ muito caro realizar uma transaÃ§Ã£o.
 
 Envolvidos
 ----------
-Clientes
-Caixas (func.)
-Gerente (func.)
-BACEN
-PROCON
+* Clientes
+* Caixas (func.)
+* Gerente (func.)
+* BACEN
+* PROCON
 
-Características
+CaracterÃ­sticas
 ---------------
-Realiza transações de consulta de saldo.
-Realiza transações de consulta de extrato.
-Permite manter o cadastro de clientes.
+* Realiza transaÃ§Ãµes de consulta de saldo.
+* Realiza transaÃ§Ãµes de consulta de extrato.
+* Permite manter o cadastro de clientes.
 
 
 

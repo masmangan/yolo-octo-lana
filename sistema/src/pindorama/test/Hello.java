@@ -1,4 +1,4 @@
-package pindorama;
+package pindorama.test;
 
 public class Hello {
 

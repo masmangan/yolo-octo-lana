@@ -1,4 +1,4 @@
-package pindorama.gui;
+package pindorama.gui.action;
 
 import java.awt.event.ActionEvent;
 

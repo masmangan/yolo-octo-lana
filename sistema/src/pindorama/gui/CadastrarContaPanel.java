@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import pindorama.gui.action.CadastrarContaAction;
 import pindorama.pojo.Conta;
 
 public class CadastrarContaPanel extends JPanel {

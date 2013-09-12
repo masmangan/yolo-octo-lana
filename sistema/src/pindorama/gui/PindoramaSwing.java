@@ -50,10 +50,13 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import pindorama.gui.action.SairAction;
+import pindorama.gui.action.SobreAction;
+
 /*
  * HelloWorldSwing.java requires no other files. 
  */
-public class HelloWorldSwing {
+public class PindoramaSwing {
 	/**
 	 * Create the GUI and show it. For thread safety, this method should be
 	 * invoked from the event-dispatching thread.

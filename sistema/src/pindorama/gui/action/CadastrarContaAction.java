@@ -1,10 +1,11 @@
-package pindorama.gui;
+package pindorama.gui.action;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
 import pindorama.dao.PindoramaDAO;
+import pindorama.gui.CadastrarContaPanel;
 import pindorama.pojo.Conta;
 
 public class CadastrarContaAction extends AbstractAction {

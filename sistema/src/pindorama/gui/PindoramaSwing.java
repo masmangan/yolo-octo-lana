@@ -1,10 +1,14 @@
 package pindorama.gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 
 import pindorama.gui.action.SairAction;
 import pindorama.gui.action.SobreAction;
@@ -28,15 +32,23 @@ public class PindoramaSwing {
 		frame.setJMenuBar(mb);
 		
 		JMenu arquivo = new JMenu("Arquivo");
+		arquivo.setMnemonic(KeyEvent.VK_A);
 		mb.add(arquivo);
+
 		JMenu ajuda = new JMenu("Ajuda");
+		ajuda.setMnemonic(KeyEvent.VK_U);
 		mb.add(ajuda);
 		
 		JMenuItem sair = new JMenuItem(new SairAction());
 		arquivo.add(sair);
+		sair.setMnemonic(KeyEvent.VK_S);
+		sair.setAccelerator(KeyStroke.getKeyStroke(
+		        KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
+		
 		JMenuItem sobre = new JMenuItem(new SobreAction(frame));
 		ajuda.add(sobre);
-		
+		sobre.setMnemonic(KeyEvent.VK_S);
+
 		JPanel panel = new CadastrarContaPanel();
 
 		frame.getContentPane().add(panel);

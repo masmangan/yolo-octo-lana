@@ -6,6 +6,11 @@ import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+/**
+ * 
+ * @author marco.mangan@gmail.com
+ *
+ */
 public class SobreAction extends AbstractAction {
 
 	/**
@@ -22,7 +27,7 @@ public class SobreAction extends AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("Sobre");
-		JOptionPane.showMessageDialog(frame, "(c) LAPRO III, FSPOA.",
+		JOptionPane.showMessageDialog(frame, "v. 0.1 (c) LAPRO III, FSPOA.",
 				"Sobre o Banco Pindorama - Caixa Eletrônico", JOptionPane.INFORMATION_MESSAGE);
 	}
 

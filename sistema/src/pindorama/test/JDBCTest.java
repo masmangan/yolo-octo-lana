@@ -10,6 +10,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ * 
+ * @author marco.mangan@gmail.com
+ *
+ */
 public class JDBCTest {
 
 	// http://jdbc.postgresql.org/documentation/head/connect.html

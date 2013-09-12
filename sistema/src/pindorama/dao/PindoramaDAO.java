@@ -9,6 +9,11 @@ import java.util.Properties;
 
 import pindorama.pojo.Conta;
 
+/**
+ * 
+ * @author marco.mangan@gmail.com
+ *
+ */
 public class PindoramaDAO {
 
 	public Conta findContaByCPF(String cpf) {

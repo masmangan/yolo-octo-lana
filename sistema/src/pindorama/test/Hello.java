@@ -1,5 +1,10 @@
 package pindorama.test;
 
+/**
+ * 
+ * @author marco.mangan@gmail.com
+ *
+ */
 public class Hello {
 
 	/**

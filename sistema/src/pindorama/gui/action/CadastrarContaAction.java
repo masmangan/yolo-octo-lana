@@ -8,6 +8,11 @@ import pindorama.dao.PindoramaDAO;
 import pindorama.gui.CadastrarContaPanel;
 import pindorama.pojo.Conta;
 
+/**
+ * 
+ * @author marco.mangan@gmail.com
+ *
+ */
 public class CadastrarContaAction extends AbstractAction {
 
 	/**
@@ -25,9 +30,8 @@ public class CadastrarContaAction extends AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		Conta c = panel.getConta();
-		System.out.println(c);
+		//System.out.println(c);
 		PindoramaDAO dao = new PindoramaDAO();
 		dao.insertConta(c);
-		
 	}
 }

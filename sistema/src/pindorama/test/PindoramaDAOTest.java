@@ -3,6 +3,11 @@ package pindorama.test;
 import pindorama.dao.PindoramaDAO;
 import pindorama.pojo.Conta;
 
+/**
+ * 
+ * @author marco.mangan@gmail.com
+ *
+ */
 public class PindoramaDAOTest {
 
 	public static void main(String[] args) {

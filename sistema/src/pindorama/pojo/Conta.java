@@ -1,5 +1,10 @@
 package pindorama.pojo;
 
+/**
+ * 
+ * @author marco.mangan@gmail.com
+ *
+ */
 public class Conta {
 
 	private int contaId;

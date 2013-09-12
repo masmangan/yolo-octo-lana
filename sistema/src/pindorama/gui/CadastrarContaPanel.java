@@ -11,6 +11,11 @@ import javax.swing.JTextField;
 import pindorama.gui.action.CadastrarContaAction;
 import pindorama.pojo.Conta;
 
+/**
+ * 
+ * @author marco.mangan@gmail.com
+ *
+ */
 public class CadastrarContaPanel extends JPanel {
 	/**
 	 * 

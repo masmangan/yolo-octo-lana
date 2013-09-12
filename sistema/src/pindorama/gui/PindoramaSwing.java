@@ -1,5 +1,6 @@
 package pindorama.gui;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -53,8 +54,7 @@ public class PindoramaSwing {
 
 		frame.getContentPane().add(panel);
 
-		// frame.setPreferredSize(new Dimension(800,200));
-		// Display the window.
+		frame.setPreferredSize(new Dimension(800,200));
 		frame.pack();
 		frame.setVisible(true);
 	}

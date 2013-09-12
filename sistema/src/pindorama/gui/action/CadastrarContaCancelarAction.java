@@ -4,22 +4,14 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-import pindorama.dao.PindoramaDAO;
 import pindorama.gui.CadastrarContaPanel;
-import pindorama.pojo.Conta;
 
-/**
- * 
- * @author marco.mangan@gmail.com
- *
- */
-public class CadastrarContaAction extends AbstractAction {
-
+public class CadastrarContaCancelarAction extends AbstractAction {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	/**
 	 * 
 	 */
@@ -29,16 +21,14 @@ public class CadastrarContaAction extends AbstractAction {
 	 * 
 	 * @param panel
 	 */
-	public CadastrarContaAction(CadastrarContaPanel panel) {
-		super("Cadastrar");
+	public CadastrarContaCancelarAction(CadastrarContaPanel panel) {
+		super("Cancelar");
 		this.panel = panel;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		Conta c = panel.getConta();
-		//System.out.println(c);
-		PindoramaDAO dao = new PindoramaDAO();
-		dao.insertConta(c);
+		panel.clear();
 	}
+
 }

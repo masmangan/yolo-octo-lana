@@ -8,35 +8,46 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import pindorama.pojo.Conta;
+
 public class CadastrarContaPanel extends JPanel {
-	private JLabel label;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private JTextField textField;
-	
-//	private Conta conta;
-//	
-//	public Conta getConta() {
-//		return new Conta(textField.getText());
-//	}
-	
+	private JTextField cpf;
+	private JTextField nome;
+	private JTextField numero;
+
+	public Conta getConta() {
+		return new Conta(cpf.getText(), nome.getText(), numero.getText());
+	}
+
 	public CadastrarContaPanel() {
-		// Add the ubiquitous "Hello World" label.
-		label = new JLabel("Hello World");
+		JLabel label;
+
 		setLayout(new FlowLayout());
 
+		label = new JLabel("CPF");
 		add(label);
+		cpf = new JTextField(10);
+		add(cpf);
 
-		textField = new JTextField("fill your name here");
-		add(textField);
+		label = new JLabel("Nome");
+		add(label);
+		nome = new JTextField(10);
+		add(nome);
 
-		//JButton button = new JButton(new JHelloAction(this));
-//		button.setToolTipText("Aperte este botão");
-//		button.setMnemonic(KeyEvent.VK_N);
-//		add(button);
+		label = new JLabel("Numero");
+		add(label);
+		numero = new JTextField(10);
+		add(numero);
+
+		JButton button = new JButton(new CadastrarContaAction(this));
+		button.setToolTipText("Cadastrar conta");
+		button.setMnemonic(KeyEvent.VK_C);
+		add(button);
 	}
 
 }

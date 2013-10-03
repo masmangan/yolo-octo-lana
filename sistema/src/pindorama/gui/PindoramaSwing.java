@@ -2,6 +2,7 @@ package pindorama.gui;
 
 import java.awt.CardLayout;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -19,7 +20,7 @@ import pindorama.gui.action.SobreAction;
 /**
  * 
  * @author marco.mangan@gmail.com
- *
+ * 
  */
 public class PindoramaSwing {
 	/**
@@ -30,12 +31,15 @@ public class PindoramaSwing {
 		// Create and set up the window.
 		JFrame frame = new JFrame("Banco Pindorama - Caixa Eletrônico");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
+				JPindoramaGerenteApp.class
+						.getResource("/pindorama/gui/left.gif")));
 
-		CardLayout card = new CardLayout(0,0);
-		
+		CardLayout card = new CardLayout(0, 0);
+
 		JMenuBar mb = new JMenuBar();
 		frame.setJMenuBar(mb);
-		
+
 		JMenu arquivo = new JMenu("Arquivo");
 		arquivo.setMnemonic(KeyEvent.VK_A);
 		mb.add(arquivo);
@@ -45,14 +49,14 @@ public class PindoramaSwing {
 		mb.add(ajuda);
 
 		JMenuItem cadastrar = new JMenuItem(new CadastrarAction(frame, card));
-		arquivo.add(cadastrar);		
-		
+		arquivo.add(cadastrar);
+
 		JMenuItem sair = new JMenuItem(new SairAction());
 		arquivo.add(sair);
 		sair.setMnemonic(KeyEvent.VK_S);
-		sair.setAccelerator(KeyStroke.getKeyStroke(
-		        KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
-		
+		sair.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
+				ActionEvent.CTRL_MASK));
+
 		JMenuItem sobre = new JMenuItem(new SobreAction(frame));
 		ajuda.add(sobre);
 		sobre.setMnemonic(KeyEvent.VK_S);
@@ -62,9 +66,10 @@ public class PindoramaSwing {
 
 		frame.setLayout(card);
 		frame.getContentPane().add(vazio, "Vazio");
-		frame.getContentPane().add(panelCadastrarCliente, "TelaCadastroCliente");
+		frame.getContentPane()
+				.add(panelCadastrarCliente, "TelaCadastroCliente");
 
-		frame.setPreferredSize(new Dimension(800,200));
+		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();
 		frame.setVisible(true);
 	}

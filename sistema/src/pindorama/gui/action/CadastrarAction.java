@@ -23,10 +23,7 @@ public class CadastrarAction extends AbstractAction {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		System.out.println("Cadastrar Action");
-		
+	public void actionPerformed(ActionEvent arg0) {	
 		card.show(frame.getContentPane(), "TelaCadastroCliente" );
 	}
 }

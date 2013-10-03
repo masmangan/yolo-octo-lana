@@ -1,8 +1,10 @@
 package pindorama.gui.action;
 
+import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
+import javax.swing.JFrame;
 
 import pindorama.gui.CadastrarContaPanel;
 
@@ -29,6 +31,9 @@ public class CadastrarContaCancelarAction extends AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		panel.clear();
+		CardLayout card = panel.getCard();
+		JFrame frame = panel.getFrame();
+		card.show(frame.getContentPane(), "Vazio");		
 	}
 
 }

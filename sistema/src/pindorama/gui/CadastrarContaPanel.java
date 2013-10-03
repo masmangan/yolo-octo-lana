@@ -1,9 +1,11 @@
 package pindorama.gui;
 
+import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -18,6 +20,15 @@ import pindorama.pojo.Conta;
  *
  */
 public class CadastrarContaPanel extends JPanel {
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public CardLayout getCard() {
+		return card;
+	}
+
+
 	/**
 	 * 
 	 */
@@ -26,6 +37,10 @@ public class CadastrarContaPanel extends JPanel {
 	private JTextField cpf;
 	private JTextField nome;
 	private JTextField numero;
+
+	private JFrame frame;
+
+	private CardLayout card;
 
 	/**
 	 * 
@@ -43,10 +58,15 @@ public class CadastrarContaPanel extends JPanel {
 
 
 	/**
+	 * @param card 
+	 * @param frame 
 	 * 
 	 */
-	public CadastrarContaPanel() {
+	public CadastrarContaPanel(JFrame frame, CardLayout card) {
 		JLabel label;
+		
+		this.frame = frame;
+		this.card = card;
 
 		setLayout(new FlowLayout());
 

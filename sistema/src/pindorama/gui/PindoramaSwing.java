@@ -1,5 +1,6 @@
 package pindorama.gui;
 
+import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -11,6 +12,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import pindorama.gui.action.CadastrarAction;
 import pindorama.gui.action.SairAction;
 import pindorama.gui.action.SobreAction;
 
@@ -29,6 +31,8 @@ public class PindoramaSwing {
 		JFrame frame = new JFrame("Banco Pindorama - Caixa Eletrônico");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		CardLayout card = new CardLayout(0,0);
+		
 		JMenuBar mb = new JMenuBar();
 		frame.setJMenuBar(mb);
 		
@@ -39,6 +43,9 @@ public class PindoramaSwing {
 		JMenu ajuda = new JMenu("Ajuda");
 		ajuda.setMnemonic(KeyEvent.VK_U);
 		mb.add(ajuda);
+
+		JMenuItem cadastrar = new JMenuItem(new CadastrarAction(frame, card));
+		arquivo.add(cadastrar);		
 		
 		JMenuItem sair = new JMenuItem(new SairAction());
 		arquivo.add(sair);
@@ -50,9 +57,12 @@ public class PindoramaSwing {
 		ajuda.add(sobre);
 		sobre.setMnemonic(KeyEvent.VK_S);
 
-		JPanel panel = new CadastrarContaPanel();
+		JPanel panelCadastrarCliente = new CadastrarContaPanel(frame, card);
+		JPanel vazio = new JPanel();
 
-		frame.getContentPane().add(panel);
+		frame.setLayout(card);
+		frame.getContentPane().add(vazio, "Vazio");
+		frame.getContentPane().add(panelCadastrarCliente, "TelaCadastroCliente");
 
 		frame.setPreferredSize(new Dimension(800,200));
 		frame.pack();

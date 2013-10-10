@@ -18,6 +18,12 @@ public class PindoramaDAOTest {
 		dao.insertConta(c);
 		
 		System.out.println(dao.findContaByCPF("1234"));
+		Conta teste = dao.findContaByCPF("12345678901");
+		System.out.println(teste);
+		
+		System.out.println(dao.findMovimentacaoByConta(teste));
+		
+		
 		
 	}
 

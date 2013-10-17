@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import pindorama.dao.PindoramaDAO;
-import pindorama.gui.CadastrarContaPanel;
+import pindorama.gui.JCadastrarContaPanel;
 import pindorama.pojo.Conta;
 
 /**
@@ -26,13 +26,13 @@ public class CadastrarContaAction extends AbstractAction {
 	/**
 	 * 
 	 */
-	private CadastrarContaPanel panel;
+	private JCadastrarContaPanel panel;
 
 	/**
 	 * 
 	 * @param panel
 	 */
-	public CadastrarContaAction(CadastrarContaPanel panel) {
+	public CadastrarContaAction(JCadastrarContaPanel panel) {
 		super("Cadastrar");
 		this.panel = panel;
 	}

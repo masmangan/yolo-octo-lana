@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 
-import pindorama.gui.CadastrarContaPanel;
+import pindorama.gui.JCadastrarContaPanel;
 
 public class CadastrarContaCancelarAction extends AbstractAction {
 	/**
@@ -17,13 +17,13 @@ public class CadastrarContaCancelarAction extends AbstractAction {
 	/**
 	 * 
 	 */
-	private CadastrarContaPanel panel;
+	private JCadastrarContaPanel panel;
 
 	/**
 	 * 
 	 * @param panel
 	 */
-	public CadastrarContaCancelarAction(CadastrarContaPanel panel) {
+	public CadastrarContaCancelarAction(JCadastrarContaPanel panel) {
 		super("Cancelar");
 		this.panel = panel;
 	}

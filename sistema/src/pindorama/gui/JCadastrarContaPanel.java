@@ -19,7 +19,7 @@ import pindorama.pojo.Conta;
  * @author marco.mangan@gmail.com
  *
  */
-public class CadastrarContaPanel extends JPanel {
+public class JCadastrarContaPanel extends JPanel {
 	public JFrame getFrame() {
 		return frame;
 	}
@@ -62,7 +62,7 @@ public class CadastrarContaPanel extends JPanel {
 	 * @param frame 
 	 * 
 	 */
-	public CadastrarContaPanel(JFrame frame, CardLayout card) {
+	public JCadastrarContaPanel(JFrame frame, CardLayout card) {
 		JLabel label;
 		
 		this.frame = frame;

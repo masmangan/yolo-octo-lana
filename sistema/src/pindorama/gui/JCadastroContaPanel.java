@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import pindorama.pojo.Conta;
+
 public class JCadastroContaPanel extends JPanel {
 	private JTable table;
 
@@ -12,7 +14,8 @@ public class JCadastroContaPanel extends JPanel {
 	 */
 	public JCadastroContaPanel() {
 		
-		table = new JTable(new MyTableModel(null));
+		//FIXME: teste com conta 1
+		table = new JTable(new MyTableModel(new Conta(1,"", "", "")));
 		add(table);
 
 	}

@@ -61,7 +61,7 @@ public class PindoramaSwing {
 		ajuda.add(sobre);
 		sobre.setMnemonic(KeyEvent.VK_S);
 
-		JPanel panelCadastrarCliente = new CadastrarContaPanel(frame, card);
+		JPanel panelCadastrarCliente = new JCadastrarContaPanel(frame, card);
 		JPanel vazio = new JPanel();
 
 		frame.setLayout(card);

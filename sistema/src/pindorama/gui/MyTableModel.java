@@ -11,6 +11,10 @@ import pindorama.pojo.Movimentacao;
 //FIXME: a tela apresenta apenas uma linha, sem conteúdo
 public class MyTableModel extends AbstractTableModel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Conta c;
 	private List<Movimentacao> mvs;
 

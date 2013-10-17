@@ -23,8 +23,6 @@ public class PindoramaDAOTest {
 		
 		System.out.println(dao.findMovimentacaoByConta(teste));
 		
-		
-		
 	}
 
 }

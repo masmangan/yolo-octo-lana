@@ -15,7 +15,7 @@ public class PindoramaDAOTest {
 		System.out.println(dao.findContaByCPF("1234"));
 		
 		Conta c = new Conta("1234", "Marco Mangan", "QAZWSX123");
-		dao.insertConta(c);
+		//dao.insertConta(c);
 		
 		System.out.println(dao.findContaByCPF("1234"));
 		Conta teste = dao.findContaByCPF("12345678901");

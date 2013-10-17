@@ -130,17 +130,16 @@ public class PindoramaDAO {
 
 			while (rs.next()) {
 				int movimentacaoId = rs.getInt(1);
-				BigDecimal v = rs.getBigDecimal(2);
-				//FIXME: verificar money no PG!
-				//String texto = rs.getString(2);
-				//FIXME: converter valor usando expressão regular e locale
-				//double valor = Double.parseDouble(texto.replace(".","").replace(",",".").substring(3));
-
-				//FIXME: consultar data
-				//String data = rs.getString(3);
-				int contaIdBD = rs.getInt(4);
-				//FIXME: incluir coluna de descrição no BD
-				mvs.add(new Movimentacao(movimentacaoId, contaIdBD, new java.util.Date(), v.doubleValue(), "**"));
+				java.sql.Timestamp data = rs.getTimestamp(2);
+				int contaIdBD = rs.getInt(3);
+				double valor = rs.getDouble(4);
+				
+				String descricao = rs.getString(5);
+				mvs.add(new Movimentacao(movimentacaoId,
+						contaIdBD, 
+						new java.util.Date(data.getTime()), 
+						valor, 
+						descricao));
 			}
 
 		} catch (Exception e) {

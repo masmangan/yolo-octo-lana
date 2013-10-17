@@ -1,6 +1,8 @@
 package pindorama.pojo;
 
+import java.text.DateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * 
@@ -53,9 +55,13 @@ public class Movimentacao {
 
 	@Override
 	public String toString() {
+		DateFormat formatter = DateFormat.getDateTimeInstance(
+                DateFormat.LONG, 
+                DateFormat.LONG, 
+                Locale.getDefault());
 		return String
 				.format("Movimentacao [movimentacaoId=%s, data=%s, valor=%s, descricao=%s, contaId=%s]",
-						movimentacaoId, data, valor, descricao, contaId);
+						movimentacaoId, formatter.format(data), valor, descricao, contaId);
 	}
 
 	

@@ -2,6 +2,7 @@ package pindorama.gui;
 
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class JCadastroContaPanel extends JPanel {
 	private JTable table;

@@ -22,7 +22,6 @@ public class SairAction extends AbstractAction {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		//System.out.println("Sair");
 		// TODO: verificar dados antes de sair da aplicação 
 		System.exit(0);
 	}

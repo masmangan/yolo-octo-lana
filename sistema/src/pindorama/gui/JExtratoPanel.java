@@ -40,9 +40,7 @@ public class JExtratoPanel extends JPanel {
 	public JExtratoPanel(JFrame frame, CardLayout card) {
 		this.frame = frame;
 		this.card = card;
-		// TODO: rever parâmetros
 
-		// table = new JTable();
 		setLayout(new BorderLayout());
 		table = new JTable(new MyTableModel(new Conta(1, "", "", "")));
 
@@ -60,7 +58,6 @@ public class JExtratoPanel extends JPanel {
 	 * invoked from the event-dispatching thread.
 	 */
 	private static void createAndShowGUI() {
-		// Create and set up the window.
 		JFrame frame = new JFrame("Teste");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

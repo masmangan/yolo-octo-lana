@@ -67,12 +67,16 @@ public class PindoramaSwing {
 		sobre.setMnemonic(KeyEvent.VK_S);
 
 		JPanel panelCadastrarCliente = new JCadastrarContaPanel(frame, card);
+		JPanel panelExtratoCliente = new JExtratoPanel(frame, card);
 		JPanel vazio = new JPanel();
 
+		
 		frame.setLayout(card);
 		frame.getContentPane().add(vazio, "Vazio");
 		frame.getContentPane()
 				.add(panelCadastrarCliente, "TelaCadastroCliente");
+		frame.getContentPane()
+		.add(panelExtratoCliente, "TelaExtratoCliente");
 
 		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();

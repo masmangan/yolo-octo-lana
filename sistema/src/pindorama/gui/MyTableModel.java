@@ -19,6 +19,8 @@ public class MyTableModel extends AbstractTableModel {
 	private List<Movimentacao> mvs;
 
 	public MyTableModel(Conta c) {
+		System.out.println("Constructor");
+		
 		this.c = c;
 		PindoramaDAO dao = new PindoramaDAO();
 		mvs = dao.findMovimentacaoByConta(c);
@@ -26,11 +28,15 @@ public class MyTableModel extends AbstractTableModel {
 
 	@Override
 	public int getColumnCount() {
+		System.out.println("col");
+		
 		return 3;
 	}
 
 	@Override
 	public int getRowCount() {
+		System.out.println("row");
+		
 		return mvs.size();
 	}
 	

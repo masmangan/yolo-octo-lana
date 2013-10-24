@@ -7,6 +7,7 @@ import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 
 import pindorama.gui.JCadastrarContaPanel;
+import pindorama.gui.JExtratoPanel;
 
 public class ExtratoFecharAction extends AbstractAction {
 	/**
@@ -17,20 +18,20 @@ public class ExtratoFecharAction extends AbstractAction {
 	/**
 	 * 
 	 */
-	private JCadastrarContaPanel panel;
+	private JExtratoPanel panel;
 
 	/**
 	 * 
-	 * @param panel
+	 * @param jExtratoPanel
 	 */
-	public ExtratoFecharAction(JCadastrarContaPanel panel) {
+	public ExtratoFecharAction(JExtratoPanel jExtratoPanel) {
 		super("Fechar");
-		this.panel = panel;
+		this.panel = jExtratoPanel;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		panel.clear();
+		//panel.clear();
 		CardLayout card = panel.getCard();
 		JFrame frame = panel.getFrame();
 		card.show(frame.getContentPane(), "Vazio");		

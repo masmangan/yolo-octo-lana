@@ -20,6 +20,20 @@ import pindorama.pojo.Movimentacao;
  */
 public class PindoramaDAO {
 
+	// TODO: criar Singleton?
+	// TODO: refatorar?
+	
+	/**
+	 * 
+	 * @param origem
+	 * @param destino
+	 */
+	public void transferir(Conta origem, Conta destino) {
+		// TODO: demonstrar uma transação 
+		
+		throw new RuntimeException("Ainda não implementado!");
+	}
+	
 	public Conta findContaByCPF(String cpf) {
 		Conta conta = null;
 		String cmd = "select * from pdr_contas where cpf= ?";

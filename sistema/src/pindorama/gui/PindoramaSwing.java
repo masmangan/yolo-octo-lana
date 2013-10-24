@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 import pindorama.gui.action.CadastrarAction;
+import pindorama.gui.action.ExtratoAction;
 import pindorama.gui.action.SairAction;
 import pindorama.gui.action.SobreAction;
 
@@ -51,6 +52,10 @@ public class PindoramaSwing {
 		JMenuItem cadastrar = new JMenuItem(new CadastrarAction(frame, card));
 		arquivo.add(cadastrar);
 
+		JMenuItem extrato = new JMenuItem(new ExtratoAction(frame, card));
+		arquivo.add(extrato);
+		
+		
 		JMenuItem sair = new JMenuItem(new SairAction());
 		arquivo.add(sair);
 		sair.setMnemonic(KeyEvent.VK_S);

@@ -1,2 +1,0 @@
-Double.parseDouble("R$ 1.023,00".replace(".","").replace(",",".").substring(3))
-(double) 1023.0

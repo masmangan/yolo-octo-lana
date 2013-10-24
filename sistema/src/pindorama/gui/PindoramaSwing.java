@@ -33,7 +33,7 @@ public class PindoramaSwing {
 		JFrame frame = new JFrame("Banco Pindorama - Caixa Eletrônico");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
-				JPindoramaGerenteApp.class
+				PindoramaSwing.class
 						.getResource("/pindorama/gui/left.gif")));
 
 		CardLayout card = new CardLayout(0, 0);

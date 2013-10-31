@@ -50,7 +50,6 @@ public class JExtratoPanel extends JPanel {
 		button.setToolTipText("Cancelar cadastro da conta");
 		button.setMnemonic(KeyEvent.VK_N);
 		add(BorderLayout.SOUTH, button);
-
 	}
 
 	/**
